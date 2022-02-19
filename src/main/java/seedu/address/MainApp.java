@@ -46,10 +46,23 @@ public class MainApp extends Application {
     protected Model model;
     protected Config config;
 
+    /*JavaFX runtime always constructs an instance of the specified Application class
+     *Calls the init() method
+     *Calls the start() method
+     *Wait for application to finish
+     *Calls the stop() method
+     */
+
+    //Runs the init() method
     @Override
     public void init() throws Exception {
         logger.info("=============================[ Initializing AddressBook ]===========================");
         super.init();
+
+        /* getParameters()
+            getParameters is from Java's Application class and retrieves the parameters for this application.
+            Including any arguments passed on the command line and any parameters specified in a JNLP file.
+         */
 
         AppParameters appParameters = AppParameters.parse(getParameters());
         config = initConfig(appParameters.getConfigPath());
