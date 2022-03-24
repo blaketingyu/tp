@@ -447,7 +447,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2. Should be able to hold up to 1000 recipes without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4. Should not use a DBMS to store data.
 5. Should work without requiring an installer.
@@ -504,7 +504,23 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
        Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
+
+### Viewing a recipe
+
+1. Viewing a recipe while all recipes are being shown
+
+    1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list.
+
+    2. Test case: `view -x 1`<br>
+       Expected: Contents of the first recipe is displayed in the result box. 
+
+    3. Test case: `view -x -1`<br>
+       Expected: No recipe is displayed in the result box. Invalid command format error is displayed in the result box with an example showing the correct usage of the view command. 
+
+    4. Other incorrect view commands to try: `view`, `view -x i` (where i is larger than the list size)<br>
+        Expected: Similar to previous.
+
 
 ### Saving data
 

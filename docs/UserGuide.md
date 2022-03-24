@@ -81,12 +81,12 @@ Usage: `list`
 ###### [return to table of content](#table-of-content)
 
 ### View recipe
-View the contents of an existing stored recipe based on the number it is associated with in the `list`. <br>
-Usage: `view <recipe number>` <br>
+View the contents of an existing stored recipe based on recipe name or index. <br>
+Usage: `view <recipe name>` <br>
 Example:
-- view 1
-    - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
-
+- view Aglio Olio
+    - This would display the full contents of the recipe matching the name "Aglio Olio" including its ingredients and steps to prepare the dish.
+    
 ### Clear recipe
 Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
 To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` 
@@ -107,6 +107,11 @@ Usage: `clear <-f: Prefix for forced Clear>` <br>
 Example:
 - clear -f
     - This would clear the recipe book without having the need for any confirmation.
+    
+Usage: `view -x <recipe index>` <br>
+Example:
+- view -x 1
+    - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
 
 ###### [return to table of content](#table-of-content)
 
