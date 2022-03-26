@@ -11,20 +11,20 @@ import seedu.address.commons.core.GuiSettings;
 /**
  * Represents User's preferences.
  */
-public class UserPrefs implements ReadOnlyUserPrefs {
-
+public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
+    //TODO: rename to "UserPrefs" once we confirm that we don't need AB3 files
     private GuiSettings guiSettings = new GuiSettings();
     private Path recipeBookFilePath = Paths.get("data" , "recipebook.json");
 
     /**
      * Creates a {@code UserPrefs} with default values.
      */
-    public UserPrefs() {}
+    public RecipeBookUserPrefs() {}
 
     /**
      * Creates a {@code UserPrefs} with the prefs in {@code userPrefs}.
      */
-    public UserPrefs(ReadOnlyUserPrefs userPrefs) {
+    public RecipeBookUserPrefs(ReadOnlyUserPrefs userPrefs) {
         this();
         resetData(userPrefs);
     }
@@ -47,6 +47,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.guiSettings = guiSettings;
     }
 
+    //TODO: change this method name after removing AB3
     public Path getRecipeBookFilePath() {
         return recipeBookFilePath;
     }
@@ -57,18 +58,18 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     }
 
     @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-        if (!(other instanceof UserPrefs)) { //this handles null as well.
+    public boolean equals(Object o) {
+        if (!(o instanceof RecipeBookUserPrefs)) {
             return false;
         }
 
-        UserPrefs o = (UserPrefs) other;
+        if (o == this) {
+            return true;
+        }
 
-        return guiSettings.equals(o.guiSettings)
-                && recipeBookFilePath.equals(o.recipeBookFilePath);
+        RecipeBookUserPrefs other = (RecipeBookUserPrefs) o;
+        return this.guiSettings.equals(other.guiSettings)
+                && this.recipeBookFilePath.equals(other.recipeBookFilePath);
     }
 
     @Override
@@ -78,10 +79,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Gui Settings : " + guiSettings);
-        sb.append("\nLocal data file location : " + recipeBookFilePath);
-        return sb.toString();
+        return String.format("GUI Settings : %s \nLocal data file location : %s", guiSettings, recipeBookFilePath);
     }
 
 }
